@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<title> type game </title>
+<script type="text/javascript" src=""></script>
+<script type="text/javascript">
+
+window.onload = function() {
+    
+    var str = 'local storage exists';
+    var jsonStr = JSON.stringify(str);
+    //document.write(jsonStr);
+}
+
+function foo() {
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+
+var x=50;
+var y=50;
+var text = 'this';
+
+context.clearRect(0,0,canvas.width,canvas.height);
+
+context.font='30px Calibri';
+var width = context.measureText(text).width;
+var height=context.measureText(text).height;
+context.rect(x,y,width,20);
+context.fillStyle='green';
+context.fill();
+
+context.fillStyle='#f00';
+context.textBaseline='top';
+context.fillText(text, x, y-5);
+}
+
+</script>
+
+<style type="text/css">
+canvas
+{
+ background-color: gray;
+ display:block;
+ margin-left:auto;
+ margin-right:auto;
+}
+</style>
+</head>
+<body>
+<canvas id="canvas" width="600" height="400">
+<p>your browser doesn't support canvas</p>
+</canvas>
+
+</body>
+</html>

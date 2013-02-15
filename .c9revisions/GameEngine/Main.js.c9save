@@ -1,0 +1,1 @@
+{"ts":1350635698428,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"var FPS=30;\nvar SECONDS_BETWEEN_FRAMES=1/FPS;\nvar g_GameObjectManager=null;\nvar g_image=new Image();\ng_image.src='b.jpg';\n\nwindow.onload=init;\n\nfunction init() {\n new GameObjectManager().startupGameObjectManager();   \n}"]],"start1":0,"start2":0,"length1":0,"length2":219}]],"length":219}

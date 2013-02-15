@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+<title>css practise</title>
+<style type="text/css">
+.root div
+{
+display: block;
+width:100%;
+height:35px;
+background:url(http://img1.t.sinajs.cn/t4/skin/skin055/images/global_nav_bg.png?id=1332818413156) repeat-x;
+position:fixed;
+left:0;
+top:0;
+}
+
+.sub div
+{
+clear:both;
+position:relative;
+}
+
+ul
+{
+list-style-type:disc;
+display:inline;
+float:left;
+position:absolute;
+left:0;
+margin:0 0 0 164px;
+width:500px;
+height:34px;
+}
+
+li
+{
+float:left;
+width:100px;
+margin:0;
+margin-left:3px;
+list-style-type:none;
+position:relative;
+height:34px;
+}
+
+p
+{
+color:#666;
+background:#ccc;
+text-decoration:none;
+text-align:center;
+line-height:30px;
+margin:2px 0 1px;
+}
+
+.dialog
+{
+border: solid black 3px;
+position:absolute;
+left:50px;
+top:100px;
+width:200px;
+height:150px;
+}
+
+.titleBar
+{
+background:#666;
+position:absolute;
+left:0;
+top:0;
+width:200px;
+height:20px;
+}
+
+.titleBar:hover
+{
+background:#f00;
+cursor:all-scroll;
+}
+
+.closeBtn
+{
+display:block;
+width:20px;
+height:20px;
+float:right;
+background:#777;
+}
+
+.closeBtn:hover
+{
+background:#00f;
+}
+
+button
+{
+background:#0ff;
+position:relative;
+top:35;
+}
+</style>
+
+<script type="text/javascript">
+var bMouseDown=false;
+var offset;
+
+window.onload=function() {
+var dialog=document.getElementById('move');
+var big=document.getElementById('big');
+
+
+dialog.onmousedown=function(ed) {
+bMouseDown=true;
+offset={x:ed.x-big.getBoundingClientRect().left, y:ed.y-big.getBoundingClientRect().top};
+};
+
+dialog.onmousemove=function(e) {
+if(bMouseDown) {
+var x=e.clientX-offset.x;
+var y=e.clientY-offset.y;
+big.style.left=x + 'px';
+big.style.top=y + 'px';
+}
+}
+
+dialog.onmouseup=function() {
+bMouseDown=false;
+};
+
+var btn=document.getElementById('btn');
+btn.onclick=function(){
+big.style.display='none';
+}
+
+}
+
+function bodyClick() {
+var big=document.getElementById('big');
+big.style.display='block';
+}
+
+
+
+</script>
+</head>
+<body >
+<div class="root">
+<div class="sub">
+<ul>
+<li><p>Item 1</p></li>
+<li><p>Item 2</p></li>
+<li><p>Item 3</p></li>
+<li><p>Item 4</p></li>
+</ul>
+</div>
+</div>
+
+<button ondblclick="bodyClick()">Show Dialog</button>
+
+<div class="dialog" id="big">
+<div class="titleBar" id="move">
+<div class="closeBtn" id="btn">
+</div>
+</div>
+<p style="position:absolute;top:20px">Here are some text, the important thing is not to move too fast</p>
+</div>
+</body>
+</html>

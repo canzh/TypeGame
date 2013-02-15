@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<title> js snap </title>
+<script type="text/javascript" src="Keymap.js"></script>
+<script>
+//window.onload=function() {
+
+
+function foo(event, keyid) {
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    
+    context.font='italic 30px sans-serif';
+    context.fillStyle='#f00';
+    context.fillText(keyid,50,50);
+}
+
+
+var bindings={
+    'A':foo,
+    'b':foo,
+    'c':foo,
+    'd':foo,
+    'e':foo,
+    'f':foo,
+    'g':foo,
+    'h':foo,
+    'i':foo,
+    'j':foo,
+    'k':foo,
+    'l':foo,
+    'm':foo,
+    'n':foo,
+    'o':foo,
+    'p':foo,
+    'q':foo,
+    'r':foo,
+    's':foo,
+    't':foo,
+    'u':foo,
+    'v':foo,
+    'w':foo,
+    'x':foo,
+    'y':foo,
+    'z':foo
+};
+
+var a = new Keymap(bindings);
+a.install(document);
+//}
+</script>
+<style type="text/css">
+canvas
+{
+ background-color: gray;
+ display:block;
+ margin-left:auto;
+ margin-right:auto;
+}
+
+</style>
+</head>
+<body>
+<canvas id="canvas" width="600" height="400">
+<p>your browser doesn't support canvas</p>
+</canvas>
+<button id="b1" onclick="shake('b1');">Change Alpha</button>
+<button id="b2" onclick="shake('b2');">Shear</button>
+<button id="b3" onclick="shake(this, fadeout);">Scale</button>
+<button id="b4" onclick="fadeout('b4');">Rotate</button>
+</body>
+</html>
